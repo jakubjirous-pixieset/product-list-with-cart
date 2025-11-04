@@ -2,73 +2,290 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
+
   <title>Frontend Mentor | Product list with cart</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
+
+    h2 {
+      font-family: Arial, Helvetica, sans-serif;
+      margin-left: 150px;
+    }
+
+    img {
+      width: 170px;
+      height: 170px;
+      border-radius: 0.5rem;
+    }
+
+    #items {
+      padding-bottom: 30px;
+      display: grid;
+      grid-area: auto;
+      gap: 5px;
+      position: relative;
+    }
+
+    .cartItems {
+      display: grid;
+      gap: 10px;
+    }
+
+    p {
+      margin: 0;
+      padding: 0;
+    }
+
+    button {
+      align-content: center;
+      display: grid;
+    }
+
+    .cart {
+      grid-column: 4;
+      grid-row: 1 / span 2;
+    }
+
+    .confirm-order {
+      background-color: rgb(163, 82, 6);
+      border-radius: 2rem;
+      color: white;
+      width: 200px;
+      height: 40px;
+      padding: 2px;
+      border: none;
+    }
+
+    .cart-title {
+      font-size: 1rem;
+      color: rgb(163, 82, 6);
+      font-family: sans-serif;
+    }
+
+    .order-total {
+      font-size: 0.8rem;
+      color: rgb(120, 104, 89);
+      font-family: sans-serif;
+      margin-bottom: 20px;
+      margin: 0;
+      padding-bottom: 20px;
+    }
+
+    .add-to-cart {
+      background-color: white;
+      border-radius: 2rem;
+      border: 2px solid rgb(163, 82, 6);
+      color: black;
+      height: 30px;
+      width: 120px;
+      font-size: 0.60rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      position: absolute;
+      top: 155px;
+      left: 37%;
+      transform: translateX(-50%);
+      z-index: 10;
+    }
+
+    .item-name {
+      font-weight: lighter;
+      font-size: 0.6rem;
+      font-family: arial;
+      padding-top: 25px;
+      color: rgb(180, 113, 51);
+    }
+
+    .item-description {
+      font-family: arial;
+      font-size: 0.7rem;
+      padding: 5px 0;
+      font-weight: 600;
+      color: rgb(86, 42, 1);
+    }
+
+    .item-price {
+      color: rgb(163, 82, 6);
+      font-size: 0.7rem;
+      font-family: arial;
+      font-weight: 600;
+    }
+
+    .cart-icon {
+      width: 12px;
+      height: 12px;
+    }
+
+    /* Media Queries for Responsive Design */
+
+    /* Large screens and desktops */
+    @media (min-width: 1200px) {
+      .cartItems {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .cart {
+        grid-column: 5;
+        grid-row: 1 / span 3;
+        position: sticky;
+        top: 20px;
+      }
+    }
+
+    /* Mobile screens */
+    @media (max-width: 768px) {
+      .cartItems {
+        display: flex;
+        flex-direction: column;
+        padding: 0 15px;
+        gap: 20px;
+      }
+
+      .cart {
+        position: static;
+        margin-top: 20px;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
   </style>
 </head>
 <body>
 
-  Desserts 123344
+  <h2>Desserts</h2>
 
-  Waffle with Berries
-  Waffle
-  6.50
-  Add to Cart
-
-  Vanilla Bean Crème Brûlée
-  Crème Brûlée
-  7.00
-  Add to Cart
-
-  Macaron Mix of Five
-  Macaron
-  8.00
-  Add to Cart
-
-  Classic Tiramisu
-  Tiramisu
-  5.50
-  Add to Cart
-
-  Pistachio Baklava
-  Baklava
-  4.00
-  Add to Cart
-
-  Lemon Meringue Pie
-  Pie
-  5.00
-  Add to Cart
-
-  Red Velvet Cake
-  Cake
-  4.50
-  Add to Cart
-
-  Salted Caramel Brownie
-  Brownie
-  4.50
-  Add to Cart
-
-  Vanilla Panna Cotta
-  Panna Cotta
-  6.50
-  Add to Cart
-
-  Your Cart (<!-- Quantity -->)
-  Your added items will appear here
-
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+  <div class = cartItems>
+  <div id = items>
+    <img src="./assets/images/image-waffle-desktop.jpg" alt="Waffle with Berries">
+    <button class="add-to-cart">
+      <img class="cart-icon" src="./assets/images/icon-add-to-cart.svg" alt="cart icon">
+      Add to Cart
+    </button>
+    <p class="item-name">Waffle</p>
+    <p class="item-description">Waffle with Berries</p>
+    <p class="item-price">$6.50</p>
   </div>
+
+
+  <div id = items>
+    <img src="./assets/images/image-creme-brulee-desktop.jpg" alt="Vanilla Bean Crème Brûlée">
+    <button class="add-to-cart">
+      <img class="cart-icon" src="./assets/images/icon-add-to-cart.svg" alt="cart icon">
+      Add to Cart
+    </button>
+    <p class="item-name">Crème Brûlée</p>
+    <p class="item-description">Vanilla Bean Crème Brûlée</p>
+    <p class="item-price">$7.00</p>
+  </div>
+
+  <div id = items>
+    <img src="./assets/images/image-macaron-desktop.jpg" alt="Macaron Mix of Five">
+    <button class="add-to-cart">
+      <img class="cart-icon" src="./assets/images/icon-add-to-cart.svg" alt="cart icon">
+      Add to Cart
+    </button>
+    <p class="item-name">Macaron</p>
+    <p class="item-description">Macaron Mix of Five</p>
+    <p class="item-price">$8.00</p>
+  </div>
+
+  <div id = items>
+    <img src="./assets/images/image-tiramisu-desktop.jpg" alt="Classic Tiramisu">
+    <button class="add-to-cart">
+      <img class="cart-icon" src="./assets/images/icon-add-to-cart.svg" alt="cart icon">
+      Add to Cart
+    </button>
+    <p class="item-name">Tiramisu</p>
+    <p class="item-description">Classic Tiramisu</p>
+    <p class="item-price">$5.50</p>
+  </div>
+
+  <div id = items>
+    <img src="./assets/images/image-baklava-desktop.jpg" alt="Pistachio Baklava">
+    <button class="add-to-cart">
+      <img class="cart-icon" src="./assets/images/icon-add-to-cart.svg" alt="cart icon">
+      Add to Cart
+    </button>
+    <p class="item-name">Baklava</p>
+    <p class="item-description">Pistachio Baklava</p>
+    <p class="item-price">$4.00</p>
+  </div>
+
+  <div id = items>
+    <img src="./assets/images/image-meringue-desktop.jpg" alt="Lemon Meringue Pie">
+    <button class="add-to-cart">
+      <img class="cart-icon" src="./assets/images/icon-add-to-cart.svg" alt="cart icon">
+      Add to Cart
+    </button>
+    <p class="item-name">Pie</p>
+    <p class="item-description">Lemon Meringue Pie</p>
+    <p class="item-price">$5.00</p>
+  </div>
+
+  <div id = items>
+    <img src="./assets/images/image-cake-desktop.jpg" alt="Red Velvet Cake">
+    <button class="add-to-cart">
+      <img class="cart-icon" src="./assets/images/icon-add-to-cart.svg" alt="cart icon">
+      Add to Cart
+    </button>
+    <p class="item-name">Cake</p>
+    <p class="item-description">Red Velvet Cake</p>
+    <p class="item-price">$4.50</p>
+  </div>
+
+  <div id = items>
+    <img src="./assets/images/image-brownie-desktop.jpg" alt="Salted Caramel Brownie">
+    <button class="add-to-cart">
+      <img class="cart-icon" src="./assets/images/icon-add-to-cart.svg" alt="cart icon">
+      Add to Cart
+    </button>
+    <p class="item-name">Brownie</p>
+    <p class="item-description">Salted Caramel Brownie</p>
+    <p class="item-price">$4.50</p>
+  </div>
+
+  <div id = items>
+    <img src="./assets/images/image-panna-cotta-desktop.jpg" alt="Vanilla Panna Cotta">
+    <button class="add-to-cart">
+      <img class="cart-icon" src="./assets/images/icon-add-to-cart.svg" alt="cart icon">
+      Add to Cart
+    </button>
+    <p class="item-name">Panna Cotta</p>
+    <p class="item-description">Vanilla Panna Cotta</p>
+    <p class="item-price">$6.50</p>
+  </div>
+
+  <div class="cart">
+     <h3 class="cart-title" id="cart-title">Your Cart (0)</h3>
+     <h2 class="order-total" id="order-total">Order Total: $0.00</h2>
+  <button class="confirm-order">Confirm Order</button>
+  </div>
+
+  <script>
+    let cartCount = 0;
+
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+      button.addEventListener('click', function() {
+        cartCount++;
+        document.getElementById('cart-title').textContent = `Your Cart (${cartCount})`;
+      });
+    });
+  </script>
 </body>
 </html>
